@@ -379,26 +379,26 @@ class MoonHighlighterGUI:
         title_label.grid(row=0, column=0, columnspan=3, pady=(0, 20))
         
         # Campos de entrada
-        ttk.Label(main_frame, text="Arquivo PDF:").grid(row=1, column=0, sticky=tk.W, pady=5)
+        ttk.Label(main_frame, text="Arquivo PDF(pdf path):").grid(row=1, column=0, sticky=tk.W, pady=5)
         self.pdf_var = tk.StringVar()
         pdf_entry = ttk.Entry(main_frame, textvariable=self.pdf_var, width=50)
         pdf_entry.grid(row=1, column=1, sticky=(tk.W, tk.E), padx=(5, 5), pady=5)
         ttk.Button(main_frame, text="Procurar", 
                   command=self.browse_pdf).grid(row=1, column=2, pady=5)
         
-        ttk.Label(main_frame, text="Nome do Livro:").grid(row=2, column=0, sticky=tk.W, pady=5)
+        ttk.Label(main_frame, text="Nome do Livro(book name):").grid(row=2, column=0, sticky=tk.W, pady=5)
         self.book_var = tk.StringVar()
         ttk.Entry(main_frame, textvariable=self.book_var, width=50).grid(
             row=2, column=1, sticky=(tk.W, tk.E), padx=(5, 5), pady=5)
         
-        ttk.Label(main_frame, text="Banco SQLite:").grid(row=3, column=0, sticky=tk.W, pady=5)
+        ttk.Label(main_frame, text="Banco SQLite(sqlite path):").grid(row=3, column=0, sticky=tk.W, pady=5)
         self.db_var = tk.StringVar()
         db_entry = ttk.Entry(main_frame, textvariable=self.db_var, width=50)
         db_entry.grid(row=3, column=1, sticky=(tk.W, tk.E), padx=(5, 5), pady=5)
         ttk.Button(main_frame, text="Procurar", 
                   command=self.browse_db).grid(row=3, column=2, pady=5)
         
-        ttk.Label(main_frame, text="Arquivo de Saída:").grid(row=4, column=0, sticky=tk.W, pady=5)
+        ttk.Label(main_frame, text="Arquivo de Saída(output path):").grid(row=4, column=0, sticky=tk.W, pady=5)
         self.output_var = tk.StringVar()
         output_entry = ttk.Entry(main_frame, textvariable=self.output_var, width=50)
         output_entry.grid(row=4, column=1, sticky=(tk.W, tk.E), padx=(5, 5), pady=5)
@@ -410,18 +410,18 @@ class MoonHighlighterGUI:
         options_frame.grid(row=5, column=0, columnspan=3, sticky=(tk.W, tk.E), pady=20)
         
         self.fuzzy_var = tk.BooleanVar(value=True)
-        ttk.Checkbutton(options_frame, text="Usar busca fuzzy", 
+        ttk.Checkbutton(options_frame, text="Usar busca fuzzy(use fuzzy search)", 
                        variable=self.fuzzy_var).grid(row=0, column=0, sticky=tk.W)
         
         # Botões
         button_frame = ttk.Frame(main_frame)
         button_frame.grid(row=6, column=0, columnspan=3, pady=20)
         
-        ttk.Button(button_frame, text="Processar Highlights", 
+        ttk.Button(button_frame, text="Processar Highlights(process highlights)", 
                   command=self.process_highlights).pack(side=tk.LEFT, padx=5)
-        ttk.Button(button_frame, text="Limpar", 
+        ttk.Button(button_frame, text="Limpar(clear)", 
                   command=self.clear_fields).pack(side=tk.LEFT, padx=5)
-        ttk.Button(button_frame, text="Sair", 
+        ttk.Button(button_frame, text="Sair(exit)", 
                   command=self.root.quit).pack(side=tk.LEFT, padx=5)
         
         # Barra de progresso
@@ -431,7 +431,7 @@ class MoonHighlighterGUI:
         self.progress_bar.grid(row=7, column=0, columnspan=3, sticky=(tk.W, tk.E), pady=10)
         
         # Área de log
-        log_frame = ttk.LabelFrame(main_frame, text="Log", padding="10")
+        log_frame = ttk.LabelFrame(main_frame, text="Log(log)", padding="10")
         log_frame.grid(row=8, column=0, columnspan=3, sticky=(tk.W, tk.E, tk.N, tk.S), pady=10)
         log_frame.columnconfigure(0, weight=1)
         log_frame.rowconfigure(0, weight=1)
@@ -445,7 +445,7 @@ class MoonHighlighterGUI:
     def browse_pdf(self):
         """Abre diálogo para selecionar arquivo PDF"""
         filename = filedialog.askopenfilename(
-            title="Selecionar arquivo PDF",
+            title="Selecionar arquivo PDF(select pdf file)",
             filetypes=[("PDF files", "*.pdf"), ("All files", "*.*")]
         )
         if filename:
@@ -457,7 +457,7 @@ class MoonHighlighterGUI:
     def browse_db(self):
         """Abre diálogo para selecionar banco SQLite"""
         filename = filedialog.askopenfilename(
-            title="Selecionar banco SQLite",
+            title="Selecionar banco SQLite(select sqlite file)",
             filetypes=[("SQLite files", "*.sqlite"), ("All files", "*.*")]
         )
         if filename:
@@ -466,7 +466,7 @@ class MoonHighlighterGUI:
     def browse_output(self):
         """Abre diálogo para selecionar arquivo de saída"""
         filename = filedialog.asksaveasfilename(
-            title="Salvar PDF como",
+            title="Salvar PDF como(save pdf as)",
             defaultextension=".pdf",
             filetypes=[("PDF files", "*.pdf"), ("All files", "*.*")]
         )

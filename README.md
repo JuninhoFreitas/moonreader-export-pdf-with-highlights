@@ -20,7 +20,7 @@ A Python CLI application that processes PDF book highlights based on data stored
 
 1. Clone the repository:
 ```bash
-git clone <repository-url>
+git clone https://github.com/JuninhoFreitas/moonreader-export-pdf-with-highlights
 cd moon-highlighter
 ```
 
@@ -31,12 +31,18 @@ pip install -r requirements.txt
 
 ## Usage
 
-### Complete Version
+### GUI Version
+```bash
+python moon_highlighter.py --gui
+```
+
+### DEPRECATED!!!
+#### Complete Version
 ```bash
 python moon_highlighter.py -p <pdf_path> -b <book_name> -d <database_path> [-o <output_path>]
 ```
 
-### Test Version (Recommended)
+#### Test Version (Recommended)
 ```bash
 python moon_highlighter_simple.py -p <pdf_path> -b <book_name> -d <database_path> [-o <output_path>] [-l <limit>]
 ```
